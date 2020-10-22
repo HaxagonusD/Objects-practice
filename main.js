@@ -10,7 +10,58 @@
 // cinnamon
 // cumin
 // cocoa
+let recipe = {
+  title: 'mole',
+  servings: 10,
+  ingredients: ['chocolate', 'cummin', 'water'],
+  increasedServings: function(){
+    this.servings += 1;
+  }
+}
+console.log(recipe.title);
+console.log(recipe.servings);
+console.log(recipe.ingredients);
+recipe.increasedServings();
+console.log(recipe.servings);
 
+
+
+
+
+
+const book = [
+  { title: "1984", author: "george orwell", alreadyRead: true },
+  { title: "bible", author: "god", alreadyRead: false }
+];
+const loopBook = function (arr) {
+  for (let item of arr) {
+    if (item.alreadyRead) {
+      console.log(`you have already read ${item.title}, by ${item.author}`);
+    } else {
+      console.log(`you have not read ${item.title}, by ${item.author}`);
+    }
+  }
+}
+// loopBook(book);
+
+
+const favMovie = {
+  title: 'Vampires in the bronx',
+  director:' osmany rodriguez',
+  actors: ['zoe saldana', 'methodman'],
+  releaseYear: '2020',
+  duration: '86',
+  increaseDuration: function() {
+    this.duration += 30;
+  }
+}
+console.log(favMovie.title);
+console.log(favMovie.director);
+console.log(favMovie.actors);
+console.log(favMovie.releaseYear);
+console.log(favMovie.duration);
+favMovie.increaseDuration();
+console.log(favMovie.duration);
 
 
 
@@ -28,13 +79,13 @@
 
 //Exercise #3
 //Create your object representing your favorite movie, like so
-// const shawshank = {
-//   title: 'Shawshank Redemption',
-//   director: 'Frank Darabont',
-//   actors: ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton'],
-//   releaseYear: 1994, 
-//   duration: 142
-// }
+const shawshank = {
+  title: 'Shawshank Redemption',
+  director: 'Frank Darabont',
+  actors: ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton'],
+  releaseYear: 1994, 
+  duration: 142
+}
 // After you have crreated your movie object, print the title 
 // of your movie using dot notation
 // Print the director's name
@@ -42,8 +93,10 @@
 // Maybe your favorite came with an extended cut, including deleted scenes. 
 // Write a statement that increases your movie object's duration by 30 minutes. 
 
-
-
+for(key in shawshank) {
+  console.log(shawshank[key])
+}
+shawshank.duration =+30;
 
 
 
@@ -53,17 +106,24 @@
 // You are checking if arrayList is an array, assuming it were an object before testing it
 // That it is not an object
 let arrayList = [1, 2, 3];
-
+console.log(Array.isArray(arrayList))
 
 //Exercise #5
 // Write a function countCharacters that, when given a string as an argument,
 // returns an object containing counts of the ocurrences of each character in 
 // the string
-// function countCharacters(){
-// 
-//  }
-// countCharacters("hello"); => {"h": 1, "e": 1, "l": 2, "o": 1}
+function countCharacters(string){
+  const temp = {}
+  const tempStringArray = string.split("");
+  tempStringArray.forEach((item) =>{
+    temp.hasOwnProperty(item) ? temp[item] += 1 : temp[item] = 1;
+  })
 
+
+  return temp;
+ }
+// countCharacters("hello"); => {"h": 1, "e": 1, "l": 2, "o": 1}
+console.log(countCharacters("hello"));
 
 //Exercise #6
 // Write a function that accepts two objects
@@ -85,3 +145,4 @@ object2 = {
   d: 5,
   e: 6
 };
+
